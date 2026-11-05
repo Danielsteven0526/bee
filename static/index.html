@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bee — Pide antes. Recoge sin fila.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--coal:#241407;--honey:#e6a532;--deep:#b97e1a;--cream:#faf1de;--paper:#fffdf8;--ink:#2a1a0c;--soft:#6b573f;--line:rgba(42,26,12,.12);--tl:#f6ead3;--tls:#cbb491}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+.hex{clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+header{background:radial-gradient(120% 140% at 80% 0,#3a230f,var(--coal) 50%,#190d03);color:var(--tl);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:9px}.logo i{width:26px;height:30px;background:var(--honey);display:block}
+.logo b{font:700 32px/1 Fraunces,serif;color:var(--honey)}
+#who{font-size:13px;display:flex;align-items:center;gap:8px}
+main{max-width:640px;margin:0 auto;padding:20px 18px 150px}
+.hero{background:radial-gradient(120% 140% at 80% 0,#3a230f,var(--coal) 50%,#190d03);color:var(--tl);border-radius:10px;padding:28px 22px;margin-bottom:18px}
+.kick{font-size:12px;color:var(--tls);letter-spacing:.06em;font-weight:600}.kick b{color:var(--honey)}
+.hero h1{font-size:40px;line-height:1.05;color:var(--honey);margin:14px 0 8px}
+.hero p{margin:0;color:var(--tls);line-height:1.6}.tag{font:italic 500 21px Fraunces,serif;color:var(--tl);margin:6px 0 12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px;margin:12px 0}
+.card h2{font-size:24px;margin-bottom:10px}
+input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:4px;margin:5px 0;font:inherit;background:#fff;color:var(--ink)}input:focus{outline:0;border-color:var(--honey)}
+button{font:600 15px Karla,sans-serif;background:var(--honey);color:#20130a;border:1.5px solid transparent;border-radius:4px;padding:11px 20px;cursor:pointer}
+button:active{transform:translateY(1px)}button:disabled{opacity:.4}
+button.g{background:none;border-color:currentColor;color:inherit}header button{padding:6px 12px;font-size:13px;color:var(--tl)}
+.e{color:#a12;font-size:14px;min-height:20px;margin:6px 0}small{color:var(--soft)}
+.eyebrow{font-size:13px;font-weight:700;color:var(--deep);display:flex;align-items:center;gap:8px;margin:4px 0 10px}.eyebrow i{width:8px;height:9px;background:currentColor}
+.pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}.pill{background:var(--paper);border:1.5px solid var(--line);white-space:nowrap;color:var(--ink)}.pill.on{background:var(--coal);color:var(--honey);border-color:var(--coal)}
+.cat{color:var(--soft);font-size:14px;margin:14px 0 4px}
+.prod{display:flex;justify-content:space-between;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+.prod h3{font-size:17px}.prod span{color:var(--deep);font-weight:700}.prod.off{opacity:.5}
+.qty{display:flex;align-items:center;gap:12px}.qty b{min-width:18px;text-align:center;font-size:17px}
+.q{width:38px;height:38px;padding:0;font-size:20px;line-height:1;border-radius:50%}.qty .q:first-child{background:none;border-color:var(--line);color:var(--ink)}
+.sec{font-size:24px;margin:30px 0 8px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--coal);color:var(--tl);padding:12px 18px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:space-between;z-index:6;flex-wrap:wrap}
+.bar b{font:600 22px Fraunces,serif;color:var(--honey)}.bar input{width:auto;margin:0;padding:9px}.bar .e{width:100%;margin:0;color:#f3a}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.st{font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;background:#f2d9a3;text-transform:capitalize}.st.listo,.st.entregado{background:#bfe3c8;color:#1f5a33}.st.cancelado{background:#e8c4c4;color:#7a1f1f}
+.prog{display:flex;margin:12px 0 6px}.prog span{flex:1;font-size:11px;color:var(--soft);text-align:center}.prog i{display:block;width:18px;height:20px;background:rgba(42,26,12,.15);margin:0 auto 4px}.prog .on i{background:var(--honey)}.prog .on{color:var(--ink);font-weight:700}
+.sw{border:1.5px solid var(--line);background:none;color:var(--ink)}.sw.no{background:#e8c4c4;color:#7a1f1f}
+footer{text-align:center;font-size:12px;color:var(--soft);padding:0 18px 20px}footer b{color:var(--deep);font-family:Fraunces,serif}
+#sheet{position:fixed;inset:0;background:rgba(36,20,7,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sh{background:var(--paper);width:100%;max-width:640px;max-height:92vh;overflow:auto;border-radius:16px 16px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom))}
+.cardopt{display:block;border:1.5px solid var(--line);border-radius:6px;padding:12px;margin:6px 0}.cardopt input{width:auto;margin-right:8px}
+.ok{width:64px;height:72px;background:var(--honey);margin:0 auto 12px}
+</style></head><body>
+<header><div class="logo"><i class="hex"></i><b>Bee</b></div><span id="who"></span></header>
+<main id="app"></main><footer id="foot"><b>Bee</b> · Proyecto piloto, Universidad de San Buenaventura<br>Neyder Arenas · Nicole Lamprea · Daniel Muñoz</footer>
+<script>
+const $=s=>document.querySelector(s),app=$('#app');
+let me=null,stores=[],cart={},cur=null,mode='login',pick='';
+const api=async(u,m='GET',b)=>{const r=await fetch('/api/'+u,{method:m,headers:{'Content-Type':'application/json'},body:b&&JSON.stringify(b)});const d=await r.json();if(!r.ok)throw d.error||'Error';return d};
+const money=n=>'$'+n.toLocaleString('es-CO');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function boot(){try{me=(await api('me')).user}catch{me=null}draw()}
+function draw(){$('#who').innerHTML=me?`${esc(me.name.split(' ')[0])} <button class=g onclick="out()">Salir</button>`:'';$('#foot').style.display=me?'none':'';
+ if(!me)return authView();me.role=='store'?storeView():studentView()}
+function authView(){const r=mode=='reg';app.innerHTML=`<div class=hero><div class=kick>Proyecto piloto · <b>Universidad de San Buenaventura</b></div><h1>Bee</h1><div class=tag>Pide antes. Recoge sin fila.</div><p>Consulta el menú, paga desde el celular y recoge tu pedido ya listo, sin perder el descanso en una fila.</p></div>
+ <div class=card><h2>${r?'Crea tu cuenta':'Ingresa'}</h2>${r?'<input id=n placeholder="Nombre">':''}<input id=e type=email placeholder="Correo institucional @usb.edu.co"><input id=p type=password placeholder="Contraseña"><div id=err class=e></div><button onclick="auth()">${r?'Registrarme':'Entrar'}</button> <button class=g style="color:var(--deep)" onclick="mode='${r?'login':'reg'}';draw()">${r?'Ya tengo cuenta':'Crear cuenta'}</button><p><small>Demo tienda: cafeteria@bee.test / bee123</small></p></div>`}
+async function auth(){try{const b={email:$('#e').value,password:$('#p').value};if(mode=='reg')b.name=$('#n').value;me=(await api(mode=='reg'?'register':'login','POST',b)).user;draw()}catch(e){$('#err').textContent=e}}
+async function out(){await api('logout','POST');me=null;cart={};draw()}
+async function studentView(){stores=await api('stores');cur=cur||stores[0].id;menu()}
+function menu(){const s=stores.find(x=>x.id==cur);
+ app.innerHTML=`<p class=eyebrow><i class=hex></i>Establecimientos</p><div class=pills>${stores.map(x=>`<button class="pill ${x.id==cur?'on':''}" onclick="cur=${x.id};cart={};menu()">${esc(x.name)}</button>`).join('')}</div>
+ <p class=cat>${esc(s.category)} · menú de hoy</p>
+ ${s.products.map(p=>`<div class="prod ${p.available?'':'off'}"><div><h3>${esc(p.name)}</h3><span>${p.available?money(p.price):'Agotado'}</span></div>${p.available?`<div class=qty><button class="q g" onclick="add(${p.id},-1)">−</button><b>${cart[p.id]||0}</b><button class=q onclick="add(${p.id},1)">+</button></div>`:''}</div>`).join('')}
+ <h2 class=sec>Mis pedidos</h2><div id=orders></div><div class=bar id=cart></div>`;cartDraw();loadOrders()}
+function add(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);menu()}
+function cartDraw(){const s=stores.find(x=>x.id==cur),t=s.products.reduce((a,p)=>a+p.price*(cart[p.id]||0),0);
+ $('#cart').innerHTML=`<div class=e id=err></div><div><small style="color:var(--tls)">Total</small><br><b>${money(t)}</b></div><label style="font-size:13px">Recogida <input type=time value="${pick}" oninput="pick=this.value"></label><button onclick="checkout()" ${t?'':'disabled'}>Pagar y pedir</button>`}
+const STEPS=['pendiente','preparando','listo','entregado'];
+function prog(s){if(s=='cancelado')return'';const k=STEPS.indexOf(s);return`<div class=prog>${STEPS.map((x,i)=>`<span class="${i<=k?'on':''}"><i class=hex></i>${x}</span>`).join('')}</div>`}
+async function loadOrders(){if(!me||!$('#orders'))return;const os=await api('orders');
+ $('#orders').innerHTML=os.map(o=>`<div class=card><div class=row><h3>#${o.id} · ${esc(me.role=='store'?o.student:o.store)}</h3><span class="st ${o.status}">${o.status}</span></div>${prog(o.status)}<small>Recogida ${esc(o.pickup)} · ${money(o.total)}<br>Pago ${o.pay||'—'} · ${o.ref||''}</small><p style="margin:6px 0">${o.items.map(i=>`${i.qty}× ${esc(i.name)}`).join(', ')}</p>${actions(o)}</div>`).join('')||'<p><small>Aún no hay pedidos.</small></p>'}
+const NEXT={pendiente:['preparando','Empezar a preparar'],preparando:['listo','Marcar listo'],listo:['entregado','Entregado']};
+function actions(o){if(me.role=='store')return NEXT[o.status]?`<button onclick="setSt(${o.id},'${NEXT[o.status][0]}')">${NEXT[o.status][1]}</button>`:'';return o.status=='pendiente'?`<button class=g style="color:var(--deep)" onclick="setSt(${o.id},'cancelado')">Cancelar pedido</button>`:''}
+async function setSt(id,s){try{await api(`orders/${id}/status`,'POST',{status:s})}catch(e){alert(e)}loadOrders()}
+async function storeView(){const s=(await api('stores')).find(x=>x.id==me.store_id);
+ app.innerHTML=`<p class=eyebrow><i class=hex></i>Panel del establecimiento</p><h2 class=serif style="font-size:30px">${esc(s.name)}</h2><h2 class=sec>Pedidos</h2><div id=orders></div><h2 class=sec>Productos</h2>${s.products.map(p=>`<div class=prod><div><h3>${esc(p.name)}</h3><span>${money(p.price)}</span></div><button class="sw ${p.available?'':'no'}" onclick="tog(${p.id})">${p.available?'Disponible':'Agotado'}</button></div>`).join('')}`;loadOrders()}
+async function tog(id){await api(`products/${id}/toggle`,'POST');storeView()}
+const total=()=>stores.find(x=>x.id==cur).products.reduce((a,p)=>a+p.price*(cart[p.id]||0),0);
+async function checkout(){if(!pick){$('#err').textContent='Elige la hora de recogida';return}cards=await api('cards');showSheet()}
+let cards=[];
+function showSheet(){let h=$('#sheet');if(!h){h=document.createElement('div');h.id='sheet';document.body.appendChild(h)}
+ const s=stores.find(x=>x.id==cur),t=total();
+ h.innerHTML=`<div class=sh><h2>Pagar pedido</h2><small>${esc(s.name)} · recogida ${esc(pick)}</small><h3 style="font-size:32px;color:var(--deep);margin:6px 0">${money(t)}</h3>
+ ${cards.length?`<p class=cat>Método de pago</p>${cards.map((c,i)=>`<label class=cardopt><input type=radio name=cd value=${c.id} ${i==cards.length-1?'checked':''}>💳 ${c.brand} •••• ${c.last4}</label>`).join('')}<input id=cvv type=password inputmode=numeric maxlength=4 placeholder="CVV (3 o 4 dígitos)"><div class=e id=perr></div><button onclick="pay()">Pagar ${money(t)}</button>`:''}
+ <p class=cat>${cards.length?'¿Otra tarjeta?':'Agrega una tarjeta para pagar'}</p><input id=cn inputmode=numeric placeholder="Número de tarjeta"><input id=ch placeholder="Nombre del titular"><input id=cx placeholder="Vencimiento MM/AA" maxlength=5><div class=e id=cerr></div>
+ <button class=${cards.length?'g':''} onclick="saveCard()">Guardar tarjeta</button> <button class=g style="color:var(--deep)" onclick="$('#sheet').remove()">Cancelar</button>
+ <p><small>Pasarela de pruebas, no se cobra dinero real. Aprobada: 4242 4242 4242 4242 · Rechazada: 4000 0000 0000 0002. Solo se guarda la marca y los últimos 4 dígitos.</small></p></div>`}
+async function saveCard(){try{await api('cards','POST',{number:$('#cn').value,holder:$('#ch').value,exp:$('#cx').value});cards=await api('cards');showSheet()}catch(e){$('#cerr').textContent=e}}
+async function pay(){try{const r=await api('orders','POST',{store_id:cur,pickup:pick,card_id:+document.querySelector('input[name=cd]:checked').value,cvv:$('#cvv').value,items:Object.entries(cart).filter(e=>e[1]).map(([id,qty])=>({product_id:+id,qty}))});cart={};
+ $('#sheet').innerHTML=`<div class=sh style="text-align:center"><div class="hex ok"></div><h2>¡Pago aprobado!</h2><p>Referencia <b>${r.ref}</b><br>${money(r.total)} · recogida ${esc(pick)}</p><button onclick="$('#sheet').remove();menu()">Ver mi pedido</button></div>`}catch(e){$('#perr').textContent=e}}
+setInterval(()=>{try{loadOrders()}catch{}},5000);boot();
+</script></body></html>
